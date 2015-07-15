@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	margin: 10px 20px 0;
+	margin: 14px 20px 0;
 	line-height: 1.4em;
 }
 
@@ -45,4 +45,8 @@ h2 {
 
 h3 {
 	background-color: #2ECCFA;
+}
+
+iframe.hollywood {
+	margin: 30px auto;
 }
