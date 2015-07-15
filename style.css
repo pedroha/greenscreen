@@ -7,8 +7,12 @@ body {
 	font-family: Georgia
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .impact {
 	font-family: Impact, Verdana, Arial;
+}
+
+.impact {
+	font-size: 1.2em;
 }
 
 iframe {
@@ -23,9 +27,17 @@ img {
 
 p, h1, h2, h3, h4, h5, h6 {
 	margin: 20px;
+	padding: 10px;
 }
 
 h1 {
 	background-color: #bada55;
-	padding: 10px;
+}
+
+h2 {
+	background-color: #F781D8;
+}
+
+h3 {
+	background-color: #2ECCFA;
 }

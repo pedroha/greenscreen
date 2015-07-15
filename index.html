@@ -8,8 +8,11 @@
 
 <h1>Hollywood and Green Screening</h1>
 
-<h2>Why green screening?
-<br/>Answer: to make Hollywood movies! (And much more!!!)</h2>
+<div class="impact">
+	<p>Question: Why green screening?</p>
+	<p>Answer: to make movies like Hollywood!</p>
+	<p>(And much much more!!!)</p>
+</div>
 
 <p><a href="https://vimeo.com/70304814">Hollywood&#039;s History of Faking It | The Evolution of Greenscreen Compositing</a> from <a href="https://vimeo.com/filmmakeriq">FilmmakerIQ.com</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 <iframe src="https://player.vimeo.com/video/70304814" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -47,8 +50,14 @@
 	</ul>
 </p>
 
+<p>Ambilight was inspired by <a href="http://www.ambilightplayer.philips.com/">Philips's ambilight player</a>. Chikuyonok has a <a href="http://chikuyonok.ru/2010/03/ambilight-video/">blog post in Russian</a></p>
+
+<p>Craftymind has a blog post describing the <a href="http://www.craftymind.com/blowing-up-html5-video-and-mapping-it-into-3d-space/">Blow Up</a></p>
+
 <p>
+
 </p>
+
 
 <p>
 	The technologies for enabling real-time video processing are:
@@ -56,6 +65,28 @@
 		<li><a href="http://www.html5rocks.com/en/tutorials/video/basics/">HTML5 video<a/></li>
 		<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">HTML5 Canvas</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">API</a></li>
 	</ul>
+</p>
+
+
+<h2>WebRTC: Media Capture API - getUserMedia()</h2>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/WebRTC">WebRTC</a> is a family of technologies to enable audio/video peer to peer direct communication through browsers. One of the related API's is the Media Capture API. Through the HTML5 &lt;video&gt; tag, it's possible to attach the web camera as the source of the &lt;video&gt;</p>
+
+<p>Mozilla has a great <a href="http://mdn-samples.mozilla.org/s/webrtc-capturestill/">example on how to capture still photos</a></p>
+
+<p>The same code has been copied to a <a href="http://jsfiddle.net/ggmc9xz7/">jsfiddle</a> and
+<a href="http://jsfiddle.net/sztbLqsz/">refactored</a> a reusable <a href="https://github.com/pedroha/seriously-camera/blob/master/js/camera.js">initCamera()</a></p>
+
+
+<h2>Green Screening using WebRTC</h2>
+<p>
+	Combining <a href="https://github.com/brianchirls/Seriously.js">Seriously</a>'s Green Screening and video capture using WebRTC, we get:
+</p>
+<p>
+	<a href="http://pedroha.github.io/seriously-camera/">http://pedroha.github.io/seriously-camera/</a>
+</p>
+<p>
+	All we need is to hijack the source of the &lt;video&gt; tag to the web camera using initCamera()
 </p>
 
 <h1>How to setup Green Screening on the cheap</h1>
@@ -90,7 +121,7 @@ In the past, I tried with flat green paper and it worked very well; though I was
 </p>
 <p>
 	My name is Pedro Ha. I've been living in JS-land and front-end for the last 6 years. I enjoy exploring with generative art, animation effects, and immersive experiences. I have taught programming at <a href="http://www.scps.nyu.edu/">NYU</a>, <a href="http://www.fitnyc.edu/">FIT</a>,  <a href="http://iridescentlearning.org/">Iridescent</a>, the <a href="http://www.theknowledgehouse.org/">Knowledge House</a>, 
-	<a href="coderdojonyc.org">Coderdojo NYC</a>, <a href="https://vimeo.com/122119110">Nano Hacker Squad</a> with great support from <a href="http://www.thoughtworks.com/">Thoughtworks</a>.
+	<a href="http://coderdojonyc.org">Coderdojo NYC</a>, <a href="https://vimeo.com/122119110">Nano Hacker Squad</a> with great support from <a href="http://www.thoughtworks.com/">Thoughtworks</a>.
 </p>
 <p>
 	The bulk of the work for green screening is provided by the library <a href="http://seriouslyjs.com/">Seriously.js</a> by <a href="http://chirls.com/">Brian Chirls</a>. My contribution is mostly exposing the possibilities of this library for personal green screening by hacking with WebRTC. It was initially presented at my favorite meetup: <a href="http://www.meetup.com/hack-and-tell/">Hack & Tell meetup</a>. Later on, as I looked into Seriously.js, I found out that it supports web camera as well.
@@ -105,12 +136,16 @@ In the past, I tried with flat green paper and it worked very well; though I was
 	Contact: ph at educreational.com
 </p>
 
-<script src="jquery-1.11.3.min.js"></script>
 <script>
 
 	var openLinksInASeparateWindow = function() {
-		$('a[href]').attr('target', '_blank');
+		// $('a[href]').attr('target', '_blank');
+		var anchors = document.getElementsByTagName('a');
+		for (var i = 0; i < anchors.length; i++) {
+			anchors[i].setAttribute('target', '_blank');
+		}
 	};
+
 	openLinksInASeparateWindow();
 
 </script>
