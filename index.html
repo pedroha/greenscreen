@@ -14,10 +14,10 @@
 	<p>(And much much more!!!)</p>
 </div>
 
-<p><a href="https://vimeo.com/70304814">Hollywood&#039;s History of Faking It | The Evolution of Greenscreen Compositing</a> from <a href="https://vimeo.com/filmmakeriq">FilmmakerIQ.com</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<p><a href="https://vimeo.com/70304814">Hollywood&#039;s History of Faking It | The Evolution of Greenscreen Compositing</a><br/>from <a href="https://vimeo.com/filmmakeriq">FilmmakerIQ.com</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 <iframe src="https://player.vimeo.com/video/70304814" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-<p><a href="https://en.wikipedia.org/wiki/Chroma_key">Definition</a> by Wikipedia</p>
+<p>Wikipedia calls it <a href="https://en.wikipedia.org/wiki/Chroma_key">Chroma Key</a></p>
 
 <h2>Green Screen: Before and After</h2>
 <p>Source from <a href="www.complex.com/pop-culture/2015/04/green-screen-scenes-in-famous-movies-and-tv-shows/">Complex.com</a></p>
@@ -30,7 +30,6 @@
 
 <h3>Life of Pi</h3>
 <img src="img/life-of-pi.jpg">
-
 
 <h1>Open Standards Web Technologies: video, canvas, webrtc</h1>
 
@@ -54,17 +53,26 @@
 
 <p>Craftymind has a blog post describing the <a href="http://www.craftymind.com/blowing-up-html5-video-and-mapping-it-into-3d-space/">Blow Up</a></p>
 
+
+<h2>Real-time video processing: How it works</h2>
+
+<ul>
+	<li>
+		When playing a video using the HTML5 &lt;video&gt; tag, we grab a video frame every 33 milliseconds (so that we can grab 30 frames per second) as described in <a href="http://www.html5rocks.com/en/tutorials/video/basics/">HTML5rocks</a>
+	</li>
+	<li>
+		We pass the video frame content to an intermediate HTML5 canvas for further image processing (similar canvas filters like <a href="http://joelb.me/jsmanipulate/">JSManipulate</a>)
+	</li>
+	<li>
+		Then we output the intermediate canvas to the final output canvas, which is the only element that's visible to the user (the original video source and the intermediate canvas are not visible to the user)
+	</li>
+	<li>
+		Most of the examples are very dated and use a setTimeout() at 33 milliseconds. SeriouslyJS is the only one using the more modern requestAnimationFrame(). The recommended way is to use requestAnimationFrame() or <a href="http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/">Paul Irish's shim</a>.
+	</li>
+</ul>
+
 <p>
-
-</p>
-
-
-<p>
-	The technologies for enabling real-time video processing are:
-	<ul>
-		<li><a href="http://www.html5rocks.com/en/tutorials/video/basics/">HTML5 video<a/></li>
-		<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">HTML5 Canvas</a> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">API</a></li>
-	</ul>
+	All the examples are using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial">canvas 2D</a> with the exception of Seriously, which is using the <a href="https://dev.opera.com/articles/introduction-to-webgl-part-1/">3D/WebGL</a> context from the &lt;canvas&gt; element to use WebGL shaders for the many different effects. Seriously is based on real-time green screening and using many different filters with a different image background.
 </p>
 
 
@@ -117,9 +125,6 @@ In the past, I tried with flat green paper and it worked very well; though I was
 
 <h1>About this project</h1>
 <p>
-
-</p>
-<p>
 	My name is Pedro Ha. I've been living in JS-land and front-end for the last 6 years. I enjoy exploring with generative art, animation effects, and immersive experiences. I have taught programming at <a href="http://www.scps.nyu.edu/">NYU</a>, <a href="http://www.fitnyc.edu/">FIT</a>,  <a href="http://iridescentlearning.org/">Iridescent</a>, the <a href="http://www.theknowledgehouse.org/">Knowledge House</a>, 
 	<a href="http://coderdojonyc.org">Coderdojo NYC</a>, <a href="https://vimeo.com/122119110">Nano Hacker Squad</a> with great support from <a href="http://www.thoughtworks.com/">Thoughtworks</a>.
 </p>
@@ -134,6 +139,8 @@ In the past, I tried with flat green paper and it worked very well; though I was
 </p>
 <p>
 	Contact: ph at educreational.com
+</p>
+<p>
 </p>
 
 <script>
